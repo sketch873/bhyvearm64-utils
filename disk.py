@@ -38,7 +38,7 @@ def create_disk(config):
             '-o', config['disk']
     ]
     build.command(mkimg_cmd, cwd=disk_dir)
-
+    '''
     if config['rsync_target'] is not None:
         rsync_cmd = [
                 'rsync',
@@ -48,7 +48,7 @@ def create_disk(config):
                 '--checksum'
         ]
         build.command(rsync_cmd)
-
+    '''
 
 def get_new_env(config):
     new_env = {

@@ -1,6 +1,6 @@
 #!/bin/sh -x
 
-[ "$#" = "0" ] && set VMNAME="test" || set VMNAME="$1"
+[ "$#" = "0" ] && VMNAME="test" || VMNAME="$1"
 
 echo "[Loading kernel module 'vmm']"
 kldload vmm

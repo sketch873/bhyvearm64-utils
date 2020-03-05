@@ -1,4 +1,4 @@
-#!/usr/bin/env python3.7
+#!/usr/bin/env python3
 
 import argparse
 import json
@@ -266,6 +266,8 @@ def main(args, yesno_argnames):
         config['make_args'] = config['make_args'].split()
     if config['no_clean'] == 'yes':
         config['make_args'].append('-DNO_CLEAN')
+        #config['make_args'].append('-DWITHOUT_BHYVE')
+        config['make_args'].append('-DMODULES_OVERRIDE=\'\'')
 
     new_env = get_new_env(config)
     os.environ.update(new_env)
