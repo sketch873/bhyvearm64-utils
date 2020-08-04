@@ -32,6 +32,7 @@ def create_disk(config):
 
     mkimg_cmd = [
             'mkimg',
+            '-vvv',
             '-s', 'gpt',
             '-p', 'efi:=' + str(config['efi_img']),
             '-p', 'freebsd:=' + str(freebsd_part),
@@ -99,7 +100,10 @@ def main(args, yesno_argnames):
             required=True, must_exist=True)
 
     if 'efi_img' not in config:
-        config['efi_img'] = config['objdir'] / 'stand' / 'efi' / 'boot1' / 'boot1.efifat'
+    	# Efifat removed from FreeBSD
+        # config['efi_img'] = config['objdir'] / 'stand' / 'efi' / 'boot1' / 'boot1.efifat'
+	# ARMv8
+	config['efi_img'] = 'disk' / 'boot1.efifat'
         print('Using default EFI image at: %s' % str(config['efi_img']))
         if build._interactive:
             input('Press any key to continue...')
