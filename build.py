@@ -211,6 +211,7 @@ def get_config(args, yesno_argnames):
 
 
 targets = [
+	'arm',
         'arm64',
         'amd64'
 ]
